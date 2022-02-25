@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>二叉树B站抽奖站点</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/a251231/mass@main/panel/js/skel.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/a251231/mass@main/panel/css/other.css?66886666">
+    <link rel="icon" type="image/x-icon" href="https://spiritlhl-tc.oss-cn-beijing.aliyuncs.com/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/a251231/mass@main/panel/css/sweetalert.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/a251231/mass@main/panel/js/sweetalert-dev.js"></script>
+    <style>input { background: #dcc4c4;}</style>
+</head>
+
+<body class="landing">
+ <script type="text/javascript" color="255,255,255" opacity='0.7' zIndex="auto" count="200" src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    <div id="page-wrapper">
+
+        <section id="banner">
+            <div class="inner">
+                <h2>二叉树B站抽奖站点</h2>
+                <ul class="actions">
+                <div>
+		    <img id="qrcode" height="170em" src="./error.jpg"/>
+                    <form>
+                            <input type="text" id="email" value="" placeholder="填写QQ号" style="font-size:15px;"><br>
+                    </form>
+                    <br /><a class="button" onclick="SaveQrCode()" title="扫码后">保存CK</a>
+		</div>
+		    <a class="button" onclick="GetQrCode()" title="注意事项">注意事项</a>
+	            <a class="button" onclick="window.open('https://jq.qq.com/?_wv=1027&k=bdTVzEXQ')" title="联系站长">联系站长</a>
+	            <a class="button" onclick="window.open('https://git.spiritlhl.workers.dev/spiritLHL/Hang-up-items')" title="项目推荐">项目推荐</a>
+                    <a class="button" onclick="tsxx()" title="推送信息">推送事项</a>
+                    </li>
+                </ul>
+                <p>
+                    <br /><a style="font-size:15px;">本站点前后端由spiritlhl开发，感谢shanmite开发并维护的抽奖脚本</a>
+                    <br /><a>脚本仓库链接：</a> <a style="font-size:15px;" href="https://github.com/shanmiteko/LotteryAutoScript">LotteryAutoScript</a>
+                </p>
+
+                <div class="more">
+                    <br /><a class="button" onclick="window.open(urlip+'b/ckpush/')" title="手动录入ck">手动录入ck</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    var urlip="http://127.0.0.1:8000/"    //服务器外网地址，和main中的urlip相同
+    var qrcode = document.getElementById("qrcode")
+    var httpRequest;
+    var success = "https://ghproxy.com/https://raw.githubusercontent.com/cdle/jd_study/main/xdd/static/ok.svg";
+    var x=  document.getElementById("email")//获取输入框元素
+  function GetQrCode() {
+      if (window.XMLHttpRequest) {
+          httpRequest = new XMLHttpRequest();
+      } else if (window.ActiveXObject) {
+          httpRequest = new ActiveXObject();
+      }
+      httpRequest.open("GET", urlip+"b/readme", true);
+      httpRequest.send();
+      httpRequest.onreadystatechange = function () {
+          if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+              var json = httpRequest.responseText;
+              text = json.replace("\"", "").replace("\"", "").toString().replaceAll(";",";\n");
+              swal("站点使用须知", text, "success")
+          }
+      }
+  };
+  function SaveQrCode() {
+      if(window.XMLHttpRequest) {
+                httpRequest = new XMLHttpRequest();
+            }else if(window.ActiveXObject) {
+                httpRequest = new ActiveXObject();
+            }
+            email = x.value; //将输入框的值赋给div标签
+            var temp = urlip+"b/login/sucess/"+email; //+email.replace("\"","").replace("\"","");
+            httpRequest.open("GET", temp, true);
+            httpRequest.send();
+            httpRequest.onreadystatechange = function () {
+                var retext = httpRequest.responseText;
+                swal("录入CK", retext.replace("\"","").replace("\"","") ,"success");
+            }
+  };
+    if(window.XMLHttpRequest) {
+                httpRequest = new XMLHttpRequest();
+            }else if(window.ActiveXObject) {
+                httpRequest = new ActiveXObject();
+            };
+            httpRequest.open("GET", urlip+"b/login", true);
+            httpRequest.send();
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                    var json = httpRequest.responseText;
+                    qrcode.src = json.replace("\"", "").replace("\"", "");
+                }
+            };
+    function tsxx(){
+        swal("推送信息", "一对一推送已做好，有需要请填写QQ进行私聊推送，不需要推送的随便填，不能空着", "success")
+    }
+</script>
+
+</html>

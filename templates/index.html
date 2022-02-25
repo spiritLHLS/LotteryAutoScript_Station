@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://spiritlhl-tc.oss-cn-beijing.aliyuncs.com/favicon.ico">
+
+    <title>B站ck手动录入</title>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">二叉树B站抽奖站点</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/spiritLHL">站长GitHub</a></li>
+            <li><a href="https://git.spiritlhl.workers.dev/spiritLHL/Hang-up-items">项目推荐</a></li>
+            <li><a href="https://jq.qq.com/?_wv=1027&k=ptoIt761">联系站长<span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <form class="form-signin" action="/b/inputck/" enctype="application/x-www-form-urlencoded" method="post">
+        <h2 class="form-signin-heading">手动填写cookie录入</h2>
+        <label for="input1" class="sr-only">填写DedeUserID的值</label>
+        <input type="DedeUserID" name="DedeUserID" id="input1" class="form-control" placeholder="填写DedeUserID的值" required autofocus>
+        <label for="input2" class="sr-only">填写SESSDATA的值</label>
+        <input type="SESSDATA" name="SESSDATA" id="input2" class="form-control" placeholder="填写SESSDATA的值" required autofocus>
+        <label for="input3" class="sr-only">填写bili_jct的值</label>
+        <input type="bili_jct" name="bili_jct" id="input3" class="form-control" placeholder="填写bili_jct的值" required autofocus>
+        <label for="input4" class="sr-only">填写QQ号</label>
+        <input type="text" name="email" id="input4" class="form-control" placeholder="填写QQ号(必填)" required autofocus>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> 记住ck
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">录入</button>
+      </form>
+
+          <div class="blog-post">
+            <h3 class="blog-post-title">获取COOKIE方法1：直接复制值</h3>
+            <p class="blog-post-meta">进入<a href="https://www.bilibili.com/" target="_blank">B站主页:https://www.bilibili.com/</a>获取Cookie用于登录</p>
+
+            <p>Chrome浏览器:</p>
+            <ul>
+              <li>1.键盘按 F12 打开控制台 或 按鼠标键点击检查</li>
+              <li>2.进入Application找到Cookies栏中的三个变量</li>
+                <li>（找到下图中的所需三项，不需要点第三步的取消勾选）</li>
+                <img height="500em" src="https://camo.githubusercontent.com/09df55889964d29b817ad9e614e00c1774c422c7a282717e0717b29511cc8e57/68747470733a2f2f67697465652e636f6d2f7368616e6d6974652f4c6f74746572794175746f5363726970742f7261772f6d61696e2f646f632f7069632f676574436f6f6b6965732e706e67" />
+              <li>3.分别双击三个变量对应的Value，双击后会选中其Value值，ctrl+c复制或者鼠标右键选择复制，粘贴到本页面对应的框内</li>
+              <li>4.粘贴完毕后提交即可，返回显示录入成功即可</li>
+            </ul>
+            <p>注意只需要变量对应的值！！！！</p>
+            <p>注意复制完整！！！！</p>
+          </div>
+
+          <div class="blog-post">
+            <h3 class="blog-post-title">获取COOKIE方法2：使用控制台获取</h3>
+            <p class="blog-post-meta">进入<a href="https://www.bilibili.com/" target="_blank">B站主页:https://www.bilibili.com/</a>获取Cookie用于登录</p>
+
+            <p>Chrome浏览器:</p>
+            <ul>
+              <li>1.键盘按 F12 打开控制台 或 按鼠标键点击检查</li>
+              <li>2.进入Application找到Cookies栏中的SESSDATA将HttpOnly选项取消勾选</li>
+                <li>(此步骤是为了方便后续采用JS获取Cookies,获取完毕后应再次勾选)</li>
+                <img height="500em" src="https://camo.githubusercontent.com/09df55889964d29b817ad9e614e00c1774c422c7a282717e0717b29511cc8e57/68747470733a2f2f67697465652e636f6d2f7368616e6d6974652f4c6f74746572794175746f5363726970742f7261772f6d61696e2f646f632f7069632f676574436f6f6b6965732e706e67" />
+              <li>3.在Console中复制下一点后的代码并回车</li>
+              <li>/** 自动复制到粘贴板 */
+document
+  .cookie
+  .split(/\s*;\s*/)
+  .map(it => it.split('='))
+  .filter(it => ['DedeUserID','bili_jct', 'SESSDATA'].indexOf(it[0]) > -1)
+  .map(it => it.join('='))
+  .join('; ')
+  .split()
+  .forEach(it => copy(it) || console.log(it))</li>
+              <li>4.回车后会显示一行包含那三个值的输出，将对应等号后的值填入本页面框提交即可</li>
+            </ul>
+            <p>注意只需要变量对应的值！！！！</p>
+            <p>注意复制完整！！！！</p>
+          </div>
+    </div>
+
+
+  </body>
+</html>
